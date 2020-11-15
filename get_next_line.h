@@ -6,7 +6,7 @@
 /*   By: scolen <scolen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 14:36:12 by scolen            #+#    #+#             */
-/*   Updated: 2020/11/14 15:12:02 by scolen           ###   ########.fr       */
+/*   Updated: 2020/11/15 15:35:41 by scolen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include <unistd.h>
 # include <fcntl.h>
-//# define BUFFER_SIZE 30
-
+# include <stdlib.h>
+# include <stdio.h>
 
 char	*ft_strdup(const char *str);
 char	*ft_strjoin(char const *s1, char const *s2);

@@ -6,13 +6,11 @@
 /*   By: scolen <scolen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 15:35:21 by scolen            #+#    #+#             */
-/*   Updated: 2020/11/14 18:53:34 by scolen           ###   ########.fr       */
+/*   Updated: 2020/11/15 18:26:38 by scolen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "get_next_line.h"
-# include <stdlib.h>
-# include <unistd.h>
 
 size_t	ft_strlen(const char *str)
 {
@@ -88,25 +86,6 @@ char	*ft_strchr(const char *str, int ch)
 	if (ptr[start] == symbol)
 		return (&ptr[start]);
 	return (NULL);
-}
-
-void	*ft_memcpy(void *destination, const void *source, size_t n)
-{
-	unsigned char	*dst;
-	unsigned char	*src;
-	unsigned int	start;
-
-	dst = (unsigned char *)destination;
-	src = (unsigned char *)source;
-	start = 0;
-	if (destination == 0 && source == 0)
-		return (0);
-	while (start < n)
-	{
-		dst[start] = src[start];
-		start++;
-	}
-	return (dst);
 }
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
