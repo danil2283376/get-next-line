@@ -14,10 +14,12 @@ char	*gnl_remainder(char *remainder, char **line, int *read_from_file)
 		{
 			p_n[0] = '\0';
 			p_n++;
-			*line = ft_strdup(remainder);
-			while (p_n[len])
-				len++;
-			ft_strlcpy(remainder, p_n, len + 1);
+			if(!(*line = ft_strdup(remainder)))
+				return (p_n);
+			//while (p_n[len])
+				//len++;
+			//len = ft_strlen(p_n);
+			ft_strcpy(remainder, p_n);
 			*read_from_file = 1;
 		}
 		else
@@ -25,19 +27,19 @@ char	*gnl_remainder(char *remainder, char **line, int *read_from_file)
 			ptr = *line;
 			*line = ft_strjoin(*line, remainder);
 			free(ptr);
-			//free(remainder);
 		}
 	}
 	else
 		remainder = ft_strnew(1);
 	return (p_n);
 }
-int i = 0;
+
 int	get_next_line(int fd, char **line)
 {
-	//char buf[BUFFER_SIZE + 1];
 	char *buf = malloc(BUFFER_SIZE + 1);
-	static char *remainder;
+	if (buf == NULL)
+		return (-1);
+	static char *remainder[1024];
 	char *p_n;
 	char *ptr;
 	int read_from_file;
@@ -49,25 +51,25 @@ int	get_next_line(int fd, char **line)
 	buf[BUFFER_SIZE] = '\0';
 	*line = ft_strnew(1);
 	read_from_file = 0;
-	p_n = gnl_remainder(remainder, line, &read_from_file);
+	p_n = gnl_remainder(remainder[fd], line, &read_from_file);
 	while (!p_n && /*(read_from_file = */(b = read(fd, buf, BUFFER_SIZE)))
 	{
+		if (b == -1)
+			return (-1);
 		buf[b] = '\0';
 		if ((p_n = ft_strchr(buf, '\n')))
 		{
 			p_n[0] = '\0';
-			p_n++;
-			remainder = ft_strdup(p_n);
-			//free(buf);
+			if (!(remainder[fd] = ft_strdup(++p_n)))
+				return (-1);
 			read_from_file = 1;
 		}
 		ptr = *line;
-		//if (i != 12)
-			//printf("buf: %s\n", buf);
 		*line = ft_strjoin(*line, buf);
-		//free(buf);
 		free(ptr);
 	}
+	if (b == 0)
+		remainder[fd] = ft_strnew(1);
 	free(buf);
 	return (read_from_file);
 }
@@ -84,11 +86,11 @@ int	get_next_line(int fd, char **line)
 // 	while (get_next_line(fd, &line))
 // 	{
 // 		i++;
-// 		//printf("%s\n", line);
+// 		printf("%s\n", line);
 // 		free(line);
 // 		//printf("line = %s", line);
 // 	}
-// 	printf("%s\n\n", line);
+// 	//printf("%s\n\n", line);
 // 	//free(line);
 // 	//free(line);
 // }

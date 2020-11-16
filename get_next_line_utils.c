@@ -6,7 +6,7 @@
 /*   By: scolen <scolen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 15:35:21 by scolen            #+#    #+#             */
-/*   Updated: 2020/11/15 18:26:38 by scolen           ###   ########.fr       */
+/*   Updated: 2020/11/16 15:29:49 by scolen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,4 +119,18 @@ char	*ft_strnew(size_t size)
 	while (size--)
 		str[size] = '\0';
 	return (str);
+}
+
+char *ft_strcpy(char *dest, char *src)
+{
+	int i;
+
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }
