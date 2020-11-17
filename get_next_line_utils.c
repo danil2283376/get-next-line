@@ -6,7 +6,7 @@
 /*   By: scolen <scolen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 15:35:21 by scolen            #+#    #+#             */
-/*   Updated: 2020/11/16 15:29:49 by scolen           ###   ########.fr       */
+/*   Updated: 2020/11/17 20:45:17 by scolen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,30 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	if (size != 0)
 		dst[start] = '\0';
 	return (src_len);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	unsigned char	*ptr;
+
+	ptr = s;
+	if (n == 0)
+		return ;
+	while (n--)
+		*ptr++ = '\0';
+}
+
+void	*ft_calloc(size_t num, size_t size)
+{
+	void *ptr;
+	//int n;
+
+	ptr = (void *)malloc(size * num);
+	if (ptr == NULL)
+		return (NULL);
+	ft_bzero(ptr, num * size);
+
+	return (ptr);
 }
 
 char	*ft_strnew(size_t size)
