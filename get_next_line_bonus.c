@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scolen <scolen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 21:12:56 by scolen            #+#    #+#             */
-/*   Updated: 2020/11/18 21:16:29 by scolen           ###   ########.fr       */
+/*   Updated: 2020/11/18 21:46:48 by scolen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
-static char	*gnl_remainder(char **remainder, char **line)
+static char		*gnl_remainder(char **remainder, char **line)
 {
 	char *p_n;
 
@@ -52,7 +52,7 @@ static int		return_eof(int r_n, char **remainder, char *p_n, char *buf)
 		return (0);
 }
 
-int		get_next_line(int fd, char **line)
+int				get_next_line(int fd, char **line)
 {
 	char		*buf;
 	static char *remainder[1024];
