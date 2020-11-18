@@ -6,14 +6,14 @@
 /*   By: scolen <scolen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 14:36:12 by scolen            #+#    #+#             */
-/*   Updated: 2020/11/18 21:26:38 by scolen           ###   ########.fr       */
+/*   Updated: 2020/11/18 21:22:11 by scolen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include <unistd.h>
+# include <fcntl.h>
 # include <stdlib.h>
 
 # ifndef BUFFER_SIZE
